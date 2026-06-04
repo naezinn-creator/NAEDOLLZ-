@@ -719,59 +719,59 @@ background:#f7efe8;
 
 
 
+/* ==========================
+   MOBILE CABINE MODE MAGAZINE
+========================== */
+
 @media (max-width: 768px) {
 
   #cabine-layout {
+    display: flex;
+    flex-direction: row;
+    width: 300vw; /* 3 “pages” */
+    transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+  }
+
+  #menu-box,
+  #avatar-column {
+    width: 100vw;
+    flex: 0 0 100vw;
+  }
+
+  /* on empile avatar + panel dans la même page */
+  #avatar-column {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
   }
 
-  #avatar-column {
-    width: 100%;
-  }
-
-  #avatar-box,
-  .showcase-container {
-    width: 90vw;
-    height: 120vw; /* garde un ratio vertical */
-    max-width: 420px;
-    max-height: 760px;
-  }
-
-  #menu-box {
-    width: 90%;
-  }
-
-  #product-panel {
-    width: 90%;
-  }
-
-  .category {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  header {
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 12px;
+  /* conteneur scroll hidden */
+  #cabine {
+    overflow: hidden;
   }
 
 }
 
 
-#avatar-box img,
-.showcase-slide {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.mobile-nav{
+  display:none;
 }
 
+@media (max-width:768px){
+  .mobile-nav{
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+    margin-top:10px;
+  }
 
-body {
-  -webkit-text-size-adjust: 100%;
+  .mobile-nav button{
+    background:#4a0f14;
+    color:white;
+    border:none;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+  }
 }
 
 </style>
@@ -900,49 +900,54 @@ En espérant vous voir bientôt, Nae.
 <!-- CABINE -->
 <section id="cabine" class="page">
 
-<div id="cabine-layout">
-
-<div id="avatar-column">
-
-  <div id="avatar-box">
-    <img id="base-avatar">
+  <!-- flèches mobile (overlay) -->
+  <div class="mobile-nav">
+    <button onclick="moveCabine(-1)">❮</button>
+    <button onclick="moveCabine(1)">❯</button>
   </div>
 
-  <div id="product-panel">
-    <h3 id="product-name"></h3>
-    <p id="product-desc"></p>
-<p id="product-price"></p>
+  <div id="cabine-layout">
 
-    <div id="color-picker"></div>
+    <!-- PAGE 1 : MENU -->
+    <div id="menu-box">
 
-    <button id="add-to-cart">Ajouter au panier</button>
+      <h2>CABINE INTERACTIVE</h2>
+
+      <div id="gender-switch">
+        <button onclick="switchGender('femme')">Femme</button>
+        <button onclick="switchGender('homme')">Homme</button>
+      </div>
+
+      <div id="menus"></div>
+
+      <button id="reset-look-btn" onclick="resetLook()">
+        Réinitialiser le look
+      </button>
+
+    </div>
+
+    <!-- PAGE 2 : AVATAR + PRODUITS -->
+    <div id="avatar-column">
+
+      <div id="avatar-box">
+        <img id="base-avatar">
+      </div>
+
+      <div id="product-panel">
+        <h3 id="product-name"></h3>
+        <p id="product-desc"></p>
+        <p id="product-price"></p>
+
+        <div id="color-picker"></div>
+
+        <button id="add-to-cart">Ajouter au panier</button>
+      </div>
+
+    </div>
+
   </div>
-
-</div>
-
-<div id="menu-box">
-
-<h2>CABINE INTERACTIVE</h2>
-
-<div id="gender-switch">
-<button onclick="switchGender('femme')">Femme</button>
-<button onclick="switchGender('homme')">Homme</button>
-</div>
-
-<div id="menus"></div>
-
-<button id="reset-look-btn" onclick="resetLook()">
-Réinitialiser le look
-</button>
-
-</div>
-
-</div>
-
-</div>
 
 </section>
-
 
 
 <!-- PANIER -->
@@ -2623,6 +2628,23 @@ let showcaseTimer = setInterval(() => {
   showImage(showcaseIndex);
 
 }, 4000);
+
+
+
+
+let mobileCabinePage = 0;
+
+function moveCabine(dir){
+
+  const layout = document.getElementById("cabine-layout");
+
+  mobileCabinePage += dir;
+
+  if(mobileCabinePage < 0) mobileCabinePage = 0;
+  if(mobileCabinePage > 1) mobileCabinePage = 1;
+
+  layout.style.transform = `translateX(-${mobileCabinePage * 100}vw)`;
+}
 
 </script>
 
