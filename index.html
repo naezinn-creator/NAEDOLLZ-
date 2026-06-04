@@ -3,18 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NAEDOLLZ - Premium</title>
+<title>NAEDOLLZ Mobile</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 
 <style>
 
-/* ==========================
-   RESET
-========================== */
+/* =========================
+RESET MOBILE FIRST
+========================= */
 
 *{
 margin:0;
@@ -23,2608 +20,316 @@ box-sizing:border-box;
 }
 
 body{
-font-family:'Inter', sans-serif;
+font-family:Inter;
 background:#f5efea;
 color:#4a0f14;
 overflow-x:hidden;
 }
 
-/* ==========================
-   BACKGROUND LUXE
-========================== */
-
+/* fond */
 body:before{
 content:"";
 position:fixed;
 inset:0;
-
-background-image:url("https://i.goopics.net/wir21c.png");
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-
-opacity:0.5;
-z-index:-2;
-pointer-events:none;
+background:url("https://i.goopics.net/wir21c.png") center/cover no-repeat;
+opacity:.35;
+z-index:-1;
 }
 
-
-/* ==========================
-   HEADER GLASS LUXE
-========================== */
+/* =========================
+HEADER MOBILE
+========================= */
 
 header{
 position:fixed;
-top:20px;
+top:10px;
 left:50%;
 transform:translateX(-50%);
-width:92%;
-max-width:1200px;
-background:rgba(255,255,255,.55);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.7);
-border-radius:30px;
-
+width:95%;
 display:flex;
-justify-content:center;
-align-items:center;
-gap:28px;
-
-padding:18px 28px;
+justify-content:space-between;
+gap:5px;
+padding:10px;
+background:rgba(255,255,255,.6);
+backdrop-filter:blur(12px);
+border-radius:18px;
 z-index:1000;
-
-box-shadow:0 10px 40px rgba(0,0,0,.08);
 }
 
 header button{
-background:none;
-border:none;
-cursor:pointer;
-
-font-size:13px;
-letter-spacing:2px;
+flex:1;
+font-size:10px;
 text-transform:uppercase;
-
+border:none;
+background:none;
 color:#4a0f14;
-transition:.3s;
 }
 
-header button:hover{
-opacity:.5;
-transform:translateY(-2px);
-}
-
-/* ==========================
-   PAGES
-========================== */
+/* =========================
+PAGES
+========================= */
 
 .page{
 display:none;
-min-height:100vh;
-padding:140px 10px 60px; 
+padding:90px 10px 40px;
 }
 
 .page.active{
 display:block;
-animation:pageReveal 1s cubic-bezier(.2,.8,.2,1);
 }
 
-@keyframes pageReveal{
-0%{
-opacity:0;
-transform:translateY(80px) scale(.96);
-filter:blur(10px);
-}
-100%{
-opacity:1;
-transform:none;
-filter:none;
-}
-}
-
-@keyframes avatarSwitch {
-  0%{
-    opacity:0;
-    transform:translateY(40px) scale(.96);
-    filter:blur(8px);
-  }
-
-  100%{
-    opacity:1;
-    transform:none;
-    filter:none;
-  }
-}
-
-.avatar-switch{
-  animation:avatarSwitch .8s cubic-bezier(.2,.8,.2,1);
-}
-
-/* ==========================
-   HERO ULTRA EDITORIAL
-========================== */
+/* =========================
+HERO
+========================= */
 
 .hero{
-height:80vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
 text-align:center;
+padding-top:120px;
 }
 
 .hero h1{
-font-family:'Cormorant Garamond', serif;
-font-size:clamp(70px,12vw,180px);
-letter-spacing:14px;
-
-background:linear-gradient(90deg,#4a0f14,#8b1e2b,#4a0f14);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+font-family:"Cormorant Garamond";
+font-size:48px;
+letter-spacing:6px;
 }
 
 .hero p{
-letter-spacing:4px;
+font-size:10px;
 text-transform:uppercase;
-font-size:14px;
 opacity:.7;
+margin-top:10px;
 }
 
-/* ==========================
-   MAGAZINE (LUXE CARDS)
-========================== */
-
-.magazine-container{
-max-width:1000px;
-margin:auto;
+.hero button{
+margin-top:20px;
+padding:10px 14px;
+border:1px solid #4a0f14;
+background:transparent;
 }
+
+/* =========================
+ACCORDÉON
+========================= */
 
 .acc-item{
-background:rgba(255,255,255,.7);
-backdrop-filter:blur(10px);
-margin-bottom:16px;
-border-radius:18px;
+background:rgba(255,255,255,.65);
+margin-bottom:10px;
+border-radius:14px;
 overflow:hidden;
-border:1px solid rgba(255,255,255,.6);
-box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
 .acc-title{
 width:100%;
-padding:20px;
-
-background:transparent;
+padding:14px;
 border:none;
+background:none;
 text-align:left;
-
-font-size:15px;
-letter-spacing:2px;
 text-transform:uppercase;
-
-color:#4a0f14;
-cursor:pointer;
+font-size:11px;
 }
 
 .acc-content{
 max-height:0;
 overflow:hidden;
-transition:max-height .5s ease, padding .5s ease;
-padding:0 20px;
+transition:.4s ease;
+padding:0 14px;
 }
 
 .acc-item.active .acc-content{
-padding:20px;
-max-height:none;
+max-height:800px;
+padding:14px;
 }
 
-.acc-content p{
-  font-family: Palatino, "Palatino Linotype", serif;
-}
+/* =========================
+CABINE MOBILE ULTRA SIMPLE
+========================= */
 
-/* ==========================
-   CABINE PREMIUM FRAME
-========================== */
-
-#cabine-layout{
-display:flex;
-justify-content:center;
-align-items:flex-start;
-gap:40px;
-
-width:100%;
-max-width:1100px;
-margin:0 auto;
-
-flex-wrap:nowrap;
-}
-
-#menu-box{
-flex:0 0 320px;
-}
-
-#avatar-column{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:18px;
-width:420px;
+#cabine{
+padding-top:90px;
 }
 
 #avatar-box{
-width:420px;
-height:760px;
-
-position:relative;
+width:100%;
+height:65vh;
+border:3px solid #4a0f14;
+border-radius:18px;
 overflow:hidden;
-
-border-radius:24px;
-
-/* 💎 fond transparent (plus de blanc) */
-background:#f7efe8;
-
-/* 💎 bordure bordeaux */
-border:5px solid #4a0f14;
-
-box-shadow:0 20px 60px rgba(0,0,0,.12);
-display:flex;
-align-items:center;
-justify-content:center;
+position:relative;
+background:#f5efea;
 }
 
 #avatar-box img{
 width:100%;
 height:100%;
 object-fit:contain;
-display:block;
 position:absolute;
 top:0;
 left:0;
 }
 
-#menu-box{
-width:320px;
-padding:22px;
-
-background:rgba(255,255,255,.7);
-backdrop-filter:blur(12px);
-
-border-radius:20px;
-border:1px solid rgba(255,255,255,.7);
-
-box-shadow:0 20px 60px rgba(0,0,0,.08);
-}
-
-#avatar-column{
+/* flèches cabine mobile */
+.mobile-nav{
 display:flex;
-flex-direction:column;
-align-items:center;
-gap:18px;
-}
-
-#avatar-box {
-  width: 90vw;
-  max-width: 420px;
-  height: 70vh;
-  max-height: 760px;
-}
-
-border-radius:24px;
-background:#f5efea;
-border:5px solid #4a0f14;
-box-shadow:0 20px 60px rgba(0,0,0,.12);
-}
-
-#product-panel{
-width:420px;
-
-padding:15px;
-
-background:rgba(255,255,255,.85);
-backdrop-filter:blur(10px);
-
-border:2px solid #4a0f14;
-border-radius:14px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.12);
-
-display:none;
-  font-family:'Cormorant Garamond', serif;
-  font-size:20px;
-  letter-spacing:1px;
-  margin-bottom:6px;
-}
-
-#product-name{
-  font-family:'Cormorant Garamond', serif;
-  font-size:20px;
-  letter-spacing:1px;
-  margin-bottom:6px;
-}
-
-#product-desc{
-  font-family:'Times New Roman', serif;
-  font-size:14px;
-font-weight:500;
-  line-height:1.6;
-  opacity: 1;
-  letter-spacing:.3px;
-  margin-bottom:12px;
-}
-
-#product-price{
-  margin-bottom:16px;
-}
-
-
-
-/* ==========================
-   BUTTONS CABINE
-========================== */
-
-#gender-switch{
-display:flex;
-gap:10px;
-margin-bottom:15px;
-}
-
-#gender-switch button{
-flex:1;
-padding:12px 10px;
-
-background:transparent;
-color:#4a0f14;
-
-border:1px solid #4a0f14;
-border-radius:2px;
-
-cursor:pointer;
-
-font-family:'Inter', sans-serif;
-font-size:12px;
-letter-spacing:2px;
-text-transform:uppercase;
-
-transition:all .25s ease;
-}
-
-#gender-switch button:hover{
-background:#4a0f14;
-color:#f5efea;
-transform:translateY(-1px);
-}
-
-#add-to-cart{
-width:75%;
-padding:12px 10px;
-margin-top:20px;
-
-background:transparent;
-color:#4a0f14;
-
-border:1px solid #4a0f14;
-border-radius:2px;
-
-cursor:pointer;
-
-font-family:'Inter', sans-serif;
-font-size:12px;
-letter-spacing:2px;
-text-transform:uppercase;
-
-transition:all .25s ease;
-
-display:none;
-}
-
-#add-to-cart:hover{
-background:#4a0f14;
-color:#f5efea;
-transform:translateY(-1px);
-}
-
-.cart-btn {
-width:50%;
-padding:12px 10px;
+justify-content:center;
+gap:20px;
 margin-top:10px;
+}
 
-background:transparent;
-color:#4a0f14;
-
+.mobile-nav button{
+padding:10px 14px;
 border:1px solid #4a0f14;
-border-radius:2px;
-
-cursor:pointer;
-
-font-family:'Inter', sans-serif;
-font-size:12px;
-letter-spacing:2px;
-text-transform:uppercase;
-
-transition:all .25s ease;
+background:white;
 }
 
-.cart-btn:hover {
-background:#4a0f14;
-color:#f5efea;
-transform:translateY(-1px);
-}
-
-
-
-.hero-btn{
-  width:auto;
-  padding:12px 20px;
-  margin-top:20px;
-
-  background:transparent;
-  color:#4a0f14;
-
-  border:1px solid #4a0f14;
-  border-radius:2px;
-
-  cursor:pointer;
-
-  font-family:'Inter', sans-serif;
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-
-  transition:all .25s ease;
-}
-
-
-.hero-btn:hover,
-.hero-btn:focus,
-.hero-btn:active{
-  background:#4a0f14;
-  color:#f5efea;
-  transform:translateY(-1px);
-}
-
-.hero-btn{
-  outline:none;
-}
-
-
-/* ==========================
-   PANIER
-========================== */
-
-#cart{
-max-width:850px;
-margin:auto;
-
+/* panneau produit */
+#product-panel{
+margin-top:10px;
 background:rgba(255,255,255,.7);
-backdrop-filter:blur(10px);
-
-padding:30px;
-border-radius:18px;
-
-border:1px solid rgba(255,255,255,.6);
-box-shadow:0 20px 60px rgba(0,0,0,.08);
+padding:10px;
+border-radius:12px;
 }
 
-.cart-item{
-padding:12px;
-border-bottom:1px solid rgba(0,0,0,.08);
-}
-
-#cart-count{
-transition:all .2s ease;
-}
-
-body{
-font-family:'Inter', sans-serif;
-}
-
-h1, h2, h3{
-font-family:'Cormorant Garamond', serif;
-letter-spacing:1px;
-}
-
-h2{
-font-family:'Cormorant Garamond', serif;
-}
-
-#cabine h2,
-#panier h2{
-font-size:18px !important;
-font-weight:800;
-letter-spacing:1px;
-}
-
+/* menu catégories simplifié */
 .category{
 display:flex;
-align-items:center;
 justify-content:space-between;
-
-padding:10px 0;
-border-bottom:1px solid rgba(74,15,20,.1);
-}
-
-.category strong{
-font-family:'Inter', sans-serif;
-font-size:12px;
-letter-spacing:2px;
-text-transform:uppercase;
-color:#4a0f14;
+align-items:center;
+padding:8px 0;
+border-bottom:1px solid rgba(0,0,0,.1);
 }
 
 .category button{
-width:28px;
-height:28px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-background:#4a0f14;
-color:white;
-
-border:none;
-border-radius:2px;
-
-cursor:pointer;
-
-font-size:14px;
-line-height:1;
-
-transition:all .2s ease;
-}
-
-.category .reset-btn{
-width:28px;
-height:28px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-background:#4a0f14;
-color:white;
-
-border:none;
-border-radius:2px;
-
-cursor:pointer;
-
-font-size:14px;
-line-height:1;
-
-transition:all .2s ease;
-}
-
-.category .reset-btn:hover{
-transform:scale(1.05);
-opacity:.85;
-}
-
-.category button:hover{
-transform:scale(1.05);
-opacity:.85;
-}
-
-#reset-look-btn{
-width:100%;
-padding:12px 10px;
-margin-top:20px;
-
-background:transparent;
-color:#4a0f14;
-
-border:1px solid #4a0f14;
-border-radius:2px;
-
-cursor:pointer;
-
-font-family:'Inter', sans-serif;
+padding:4px 6px;
 font-size:12px;
-letter-spacing:2px;
-text-transform:uppercase;
-
-transition:all .25s ease;
 }
 
-#reset-look-btn:hover{
-background:#4a0f14;
-color:#f5efea;
-transform:translateY(-1px);
+/* =========================
+PANIER
+========================= */
+
+#cart{
+background:rgba(255,255,255,.7);
+padding:15px;
+border-radius:14px;
 }
 
-/* ==========================
-   SHOWCASE
-========================== */
-
-.showcase-container{
-  width:420px;
-  height:760px;
-
-  margin:auto;
-  position:relative;
-  overflow:visible;
-
-background:#f7efe8;
-
-  border:5px solid #4a0f14;
-  border-radius:24px;
-
-  box-shadow:0 20px 60px rgba(0,0,0,.12);
+.cart-item{
+padding:10px 0;
+border-bottom:1px solid #ddd;
 }
 
-.showcase-slide{
-  position:absolute;
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  object-fit:contain;
-
-  transition:opacity 3s cubic-bezier(.22,.61,.36,1);
-  opacity:0;
-}
-
-/* ==========================
-   CONTROLES FLÈCHES (FIX SORTIE CADRE)
-========================== */
-
-
-.showcase-controls{
-  position:absolute;
-  top:50%;
-
-  left:-70px;   /* 👈 sort complètement du cadre */
-  right:-70px;  /* 👈 sort complètement du cadre */
-
-  transform:translateY(-50%);
-
-  display:flex;
-  justify-content:space-between;
-
-  z-index:10;
-
-  pointer-events:none;
-}
-
-.showcase-controls button{
-  pointer-events:auto;
-
-  width:auto;
-  height:auto;
-
-  padding:12px 14px;
-
-  background:transparent;
-  color:#4a0f14;
-
-  border:1px solid #4a0f14;
-  border-radius:2px;
-
-  cursor:pointer;
-
-  font-family:'Inter', sans-serif;
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-
-  transition:all .25s ease;
-
-  backdrop-filter:blur(6px);
-}
-
-.showcase-controls button:hover{
-  background:#4a0f14;
-  color:#f5efea;
-  transform:translateY(-2px);
-}
-
-
-
-@media (max-width: 768px) {
-
-  #cabine {
-    overflow: hidden;
-    position: relative;
-  }
-
-  #cabine-layout {
-    display: flex;
-    width: 200vw; /* 2 pages */
-    transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
-  }
-
-  #menu-box,
-  #avatar-column {
-    width: 100vw;
-    flex: 0 0 100vw;
-  }
-
-  /* IMPORTANT : on évite la hauteur fixe cassée */
-  #avatar-box {
-    width: 90vw;
-    height: 70vh;
-  }
-
-  .showcase-container {
-    width: 90vw;
-    height: 70vh;
-  }
-
-}
 </style>
 </head>
 
 <body>
 
 <header>
-<button onclick="showPage('home')">Accueil</button>
-<button onclick="showPage('magazine')">Magazine</button>
-<button onclick="showPage('cabine')">Cabine</button>
-
-<button onclick="showPage('panier')" style="position:relative;">
-  Panier
-
-  <span id="cart-count" style="
-    position:absolute;
-    top:-6px;
-    right:-10px;
-    background:#4a0f14;
-    color:white;
-    font-size:11px;
-    width:18px;
-    height:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    display:none;
-  ">0</span>
-</button>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('magazine')">Mag</button>
+<button onclick="showPage('cabine')">Cab</button>
+<button onclick="showPage('panier')">Panier</button>
 </header>
 
 <!-- HOME -->
 <section id="home" class="page active">
-  <div class="hero">
-    <h1>NAEDOLLZ</h1>
-
-    <p>
-      Coiffeuse • Styliste • Chirurgienne • Esthéticienne
-    </p>
-
-    <button class="hero-btn" onclick="showPage('magazine')">
-      Découvrez la collection
-    </button>
-
-  </div>
+<div class="hero">
+<h1>NAEDOLLZ</h1>
+<p>mobile experience</p>
+<button onclick="showPage('cabine')">Enter</button>
+</div>
 </section>
-
 
 <!-- MAGAZINE -->
 <section id="magazine" class="page">
-<div class="magazine-container">
 
-<div class="accordion">
-
-<!-- EDITORIAL -->
 <div class="acc-item">
-  <button class="acc-title">Editorial</button>
-  <div class="acc-content">
-    <p>Bienvenue dans l’univers <strong>NAEDOLLZ</strong>✨<br><br>
-
-Ici, nous proposons plusieurs services pour vous embellir et vous relooker. <strong>Coiffures, visages, vêtements, tatouages, maquillages, bijoux... </strong>Vous trouverez tout ce dont vous avez besoin !<br>
-Pour vous accueillir au mieux, j’ai mis en place une <strong>cabine d’essayage interactive</strong>. Ainsi, vous pourrez voir l’ensemble de ce que je propose, les associations que vous souhaitez faire, et le rendu en réel sur un Pol ou une Polette, avec toutes les carnations et choix possibles afin de <strong>faciliter votre demande en salon.</strong><br><br>
-
-Pour informations, tout les éléments qui composent un visage ne sont pas toujours harmonieux ensemble, c’est pour cela que chaque éléments qui composent un modèle (visage, coiffure et tenues) porte un <strong>même prénom</strong>, ainsi vous saurez comment les associer. C'est également tout l'intérêt de la cabine d'essayage. Vous pouvez également visualiser directement les modèles dans <strong>le menu déroulant Showroom</strong> ci-dessous. 
-Dans le menu déroulant <strong>L'équipe</strong>, vous trouverez la marche à suivre pour vos demandes.<br><br>
-
-En espérant vous voir bientôt, Nae. 
-</p>
-  </div>
+<button class="acc-title">Editorial</button>
+<div class="acc-content">
+<p>Version mobile simplifiée du magazine.</p>
+</div>
 </div>
 
-<!-- EQUIPE -->
-<div class="acc-item">
-  <button class="acc-title">L'équipe</button>
-  <div class="acc-content">
-<p style="font-family: Palatino, 'Palatino Linotype', serif;">
-
-<strong>Pour vos demandes :</strong><br><br>
-
-
-- Toutes les <strong>coiffures : Nae ZNS</strong><br>
-
-- <strong>Yeux, nez, bouches, ombres visage</strong> (blush, tâches de rousseurs etc = cicatrices) : <strong>Nae Lenz</strong><br>
-
-- <strong>Sourcils,</strong> ongles, bijoux et maquillage : <strong>Lenz NXI</strong><br>
-
-- Pour les <strong>vêtements</strong> : Validez votre panier <strong>sur le site</strong> et vous recevrez vos articles via livraison <strong>une fois le paiement du total envoyé via virement à Nae Lenz</strong>
-</p>
-   <img
-  src="https://i.goopics.net/1ci1qc.jpg"
-  style="
-    width:100%;
-    height:auto;
-    display:block;
-    margin-top:10px;
-  "
->
-  </div>
-</div>
-
-
-<!-- SHOWCASE -->
-<div class="acc-item">
-  <button class="acc-title">Showroom</button>
-
-  <div class="acc-content">
-
-    <div class="showcase-container">
-
-      <img id="showcase-img1" class="showcase-slide">
-      <img id="showcase-img2" class="showcase-slide">
-
-      <div class="showcase-controls">
-        <button onclick="prevShowcase()">❮</button>
-        <button onclick="nextShowcase()">❯</button>
-  </div>
-</div>
-
-</div>
-
-</div>
 </section>
 
 <!-- CABINE -->
 <section id="cabine" class="page">
 
-  <!-- flèches mobile (overlay) -->
-  <div class="mobile-nav">
-    <button onclick="moveCabine(-1)">❮</button>
-    <button onclick="moveCabine(1)">❯</button>
-  </div>
+<div id="avatar-box">
+<img id="base-avatar">
+</div>
 
-  <div id="cabine-layout">
+<div class="mobile-nav">
+<button onclick="moveLayer(-1)">❮</button>
+<button onclick="moveLayer(1)">❯</button>
+</div>
 
-    <!-- PAGE 1 : MENU -->
-    <div id="menu-box">
+<div id="product-panel">
+<h3 id="product-name"></h3>
+<p id="product-desc"></p>
+<p id="product-price"></p>
+<button onclick="addToCart()">Ajouter</button>
+</div>
 
-      <h2>CABINE INTERACTIVE</h2>
-
-      <div id="gender-switch">
-        <button onclick="switchGender('femme')">Femme</button>
-        <button onclick="switchGender('homme')">Homme</button>
-      </div>
-
-      <div id="menus"></div>
-
-      <button id="reset-look-btn" onclick="resetLook()">
-        Réinitialiser le look
-      </button>
-
-    </div>
-
-    <!-- PAGE 2 : AVATAR + PRODUITS -->
-    <div id="avatar-column">
-
-      <div id="avatar-box">
-        <img id="base-avatar">
-      </div>
-
-      <div id="product-panel">
-        <h3 id="product-name"></h3>
-        <p id="product-desc"></p>
-        <p id="product-price"></p>
-
-        <div id="color-picker"></div>
-
-        <button id="add-to-cart">Ajouter au panier</button>
-      </div>
-
-    </div>
-
-  </div>
+<div id="menus"></div>
 
 </section>
 
-
 <!-- PANIER -->
 <section id="panier" class="page">
+
 <div id="cart">
-<h2>PANIER</h2>
-<h3 id="cart-total"></h3>
+<h2>Panier</h2>
 <div id="cart-items"></div>
-<button id="validate-cart" class="cart-btn" style="margin-top:20px;">
-Valider le panier
-</button>
+<button id="validate-cart">Valider</button>
 </div>
+
 </section>
 
 <script>
 
-let currentCategory = null;
-
-let cart = [];
-window.addEventListener("load", () => {
-  updateCartCount();
-  renderCart();
-});
-
-const cartAllowedCategories = ["Collant/S.Vêtement","Chaussures","tops","bas","tenues intégrales","bijoux","Accessoires","vestes","bas","haut",]; 
-const productCategories = ["cheveux", "tatouages", "maquillage", "yeux","nez","bouche","Collant/S.Vêtement","Chaussures", "tops","bas","tenues intégrales","bijoux","Accessoires","vestes","bas","haut"];
-
-/* ==========================
-   NAVIGATION PAGES
-========================== */
-
+/* NAV */
 function showPage(id){
-
-document.querySelectorAll(".page")
-.forEach(p => p.classList.remove("active"));
-
-document.getElementById(id)
-.classList.add("active");
-
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById(id).classList.add("active");
 }
 
-
-
-
-
-/* ==========================
-   AVATARS & CABINE
-========================== */
-
-const avatarFemme = "https://i.goopics.net/yqfh46.png";
-const avatarHomme = "https://i.goopics.net/xo6433.png";
-
-
-
-
-let currentGender = "femme";
-
-const categoriesFemme = {
-  "peau": [
-    {name: "Peau 1", src: "https://i.goopics.net/4u59dg.png"},
-    {name: "Peau 2", src: "https://i.goopics.net/13ruau.png"},
-    {name: "Peau 3", src: "https://i.goopics.net/q8474g.png"},
-    {name: "Peau 4", src: "https://i.goopics.net/bfmcwi.png"},
-    {name: "Peau 5", src: "https://i.goopics.net/jdqx1p.png"},
-    {name: "Peau 6", src: "https://i.goopics.net/fl8cbu.png"},
-    {name: "Peau 7", src: "https://i.goopics.net/py58uk.png"},
-    {name: "Peau 8", src: "https://i.goopics.net/wfoiqt.png"},
-    {name: "Peau 9", src: "https://i.goopics.net/tvxo9r.png"},
-    {name: "Peau 10", src: "https://i.goopics.net/jjgyi7.png"},
-    {name: "Peau 11", src: "https://i.goopics.net/d4cgdz.png"},
-    {name: "Peau 12", src: "https://i.goopics.net/f3worr.png"},
-    {name: "Peau 13", src: "https://i.goopics.net/y7ee3o.png"},
-    {name: "Peau 14", src: "https://i.goopics.net/lmuw54.png"},
-    {name: "Peau 15", src: "https://i.goopics.net/nazn1e.png"},
-    {name: "Peau 16", src: "https://i.goopics.net/lc7yzn.png"},
-    {name: "Peau 17", src: "https://i.goopics.net/nv5pjw.png"},
-    {name: "Peau 18", src: "https://i.goopics.net/dwkgr8.png"},
-    {name: "Peau 19", src: "https://i.goopics.net/eiyue7.png"}
-],
-
-
-
-
-
-"tatouages": [
-{
-name: "Tatouage ninja", src: "https://i.goopics.net/p1onnx.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage croix", src: "https://i.goopics.net/5pin40.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage rose", src: "https://i.goopics.net/t1r0vp.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage papillons", src: "https://i.goopics.net/4s8gdo.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage butterfly", src: "https://i.goopics.net/l9cl4n.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage heavenly", src: "https://i.goopics.net/nauat2.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-],
-
-
-
-
-
-  "cicatrices": [
-    {name: "Ombres visage", src: "https://i.goopics.net/r32xro.png"},
-    {name: "Ombres + grains de beauté", src: "https://i.goopics.net/fii7nw.png"},
-    {name: "Ombres + grains de beauté 2", src: "https://i.goopics.net/neygtt.png"},
-    {name: "Ombres + tâches de rousseurs", src: "https://i.goopics.net/j6vk9d.png"},
-    {name: "Ombres + grains de beauté 3", src: "https://i.goopics.net/rl2wl5.png"},
-    {name: "Ombres + blush)", src: "https://i.goopics.net/7nxoms.png"},
-    {name: "Ombres + sunburn)", src: "https://i.goopics.net/mxna0v.png"},
-    {name: "Pommettes)", src: "https://i.goopics.net/1pw9hj.png"},
-],
-
-
-
-
-
-
-
-  "muscles": [
-    {name: "Decolleté light skin", src: "https://i.goopics.net/6p7af2.png"},
-    {name: "Decolleté dark skin", src: "https://i.goopics.net/sx657f.png"},
-],
-
-
-
-  "sourcils": [
-    {name: "Sourcils Leena", src: "https://i.goopics.net/frcqlv.png"},
-    {name: "Sourcils Shaaz", src: "https://i.goopics.net/4cey2h.png"},
-    {name: "Sourcils Jenna", src: "https://i.goopics.net/j9wqz4.png"},
-    {name: "Sourcils Fayra", src: "https://i.goopics.net/quwd55.png"},
-    {name: "Sourcils Jazmin", src: "https://i.goopics.net/q4dssx.png"},
-    {name: "Sourcils Elaz", src: "https://i.goopics.net/jjjn99.png"},
-    {name: "Sourcils Venix", src: "https://i.goopics.net/o4oqta.png"},
-    {name: "Sourcils Sola", src: "https://i.goopics.net/s6lj0z.png"},
-    {name: "Sourcils Taysha", src: "https://i.goopics.net/l518ol.png"},
-    {name: "Sourcils Kiki", src: "https://i.goopics.net/3tacio.png"},
-    {name: "Sourcils Alycia", src: "https://i.goopics.net/hiwo87.png"},
-],
-
-
-
-  "maquillage": [
-{
-name: "Fard à paupière Jenna", 
-src: "https://i.goopics.net/xev805.png",
-description:"Adapté uniquement pour les yeux Jenna.",
-colors:[
-{color:"#BDCED5", src:"https://i.goopics.net/xev805.png"},
-]
-},
-{
-name: "Fard à paupière Venix", 
-src: "https://i.goopics.net/8rb6u2.png",
-description:"Adapté uniquement pour les yeux Venix.",
-colors:[
-{color:"#ff84a8", src:"https://i.goopics.net/8rb6u2.png"},
-{color:"#ff935e", src:"https://i.goopics.net/pegaky.png"},
-]
-},
-],
-
-
-
-
-"yeux":[
-{
-name:"Yeux Leena",
-src:"https://i.goopics.net/wbs3yg.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#684231", src:"https://i.goopics.net/wbs3yg.png"},
-]
-},
-{
-name:"Yeux Shaaz",
-src:"https://i.goopics.net/kthsny.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#684231", src:"https://i.goopics.net/kthsny.png"},
-]
-},
-{
-name:"Yeux Jenna",
-src:"https://i.goopics.net/abb605.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#684231", src:"https://i.goopics.net/abb605.png"},
-]
-},
-{
-name:"Yeux Fayra",
-src:"https://i.goopics.net/av60sy.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#684231", src:"https://i.goopics.net/av60sy.png"},
-]
-},
-{
-name:"Yeux Jazmin",
-src:"https://i.goopics.net/r1xpd5.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{colorImg:"https://i.goopics.net/npkfyo.png", src:"https://i.goopics.net/r1xpd5.png"},
-]
-},
-{
-name:"Yeux Elaz",
-src:"https://i.goopics.net/e7hqrv.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#6f6353", src:"https://i.goopics.net/e7hqrv.png"},
-]
-},
-{
-name:"Yeux Venix",
-src:"https://i.goopics.net/xqiijh.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#4c767f", src:"https://i.goopics.net/xqiijh.png"},
-]
-},
-{
-name:"Yeux Sola",
-src:"https://i.goopics.net/yseujv.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#4c767f", src:"https://i.goopics.net/yseujv.png"},
-{color:"#442d28", src:"https://i.goopics.net/zk93ht.png"},
-]
-},
-{
-name:"Yeux Taysha",
-src:"https://i.goopics.net/us59b1.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#946d64", src:"https://i.goopics.net/us59b1.png"},
-]
-},
-{
-name:"Yeux Kiki",
-src:"https://i.goopics.net/o6stdd.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#a4a9ad", src:"https://i.goopics.net/o6stdd.png"},
-]
-},
-{
-name:"Yeux Alycia",
-src:"https://i.goopics.net/mwftb4.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#858552", src:"https://i.goopics.net/mwftb4.png"},
-]
-},
-],
-
-
-
-
-
-
-"nez":[
-{
-name:"Nez Leena",
-src:"https://i.goopics.net/tpaa5t.png",
-description:"Light ou dark selon votre carnation. Piercing nez offert, à précisez lors de votre demande.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/tpaa5t.png"},
-{color:"#201412", src:"https://i.goopics.net/nwca9b.png"},
-]
-},
-{
-name:"Nez Shaaz",
-src:"https://i.goopics.net/a54erk.png",
-description:"Light ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/a54erk.png"},
-{color:"#201412", src:"https://i.goopics.net/nloehw.png"}
-]
-},
-{
-name:"Nez Jenna",
-src:"https://i.goopics.net/s9vly1.png",
-description:"Light-médium ou dark selon votre carnation. Piercing nez offert, à précisez lors de votre demande.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/s9vly1.png"},
-{color:"#201412", src:"https://i.goopics.net/obu4h5.png"}
-]
-},
-{
-name:"Nez Fayra",
-src:"https://i.goopics.net/gfsng9.png",
-description:"Light-médium ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/gfsng9.png"},
-{color:"#201412", src:"https://i.goopics.net/6q9sd2.png"}
-]
-},
-{
-name:"Nez Elaz",
-src:"https://i.goopics.net/7jr80c.png",
-description:"Light-médium ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/7jr80c.png"},
-{color:"#201412", src:"https://i.goopics.net/34pv7h.png"}
-]
-},
-{
-name:"Nez Venix",
-src:"https://i.goopics.net/arxdk9.png",
-description:"Light-médium ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/arxdk9.png"},
-{color:"#201412", src:"https://i.goopics.net/t2nxeg.png"}
-]
-},
-{
-name:"Nez Sola",
-src:"https://i.goopics.net/may47l.png",
-description:"Light-médium ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/may47l.png"},
-{color:"#201412", src:"https://i.goopics.net/qbqm0g.png"}
-]
-},
-{
-name:"Nez Taysha",
-src:"https://i.goopics.net/cgjkcu.png",
-description:"Light-médium ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/cgjkcu.png"},
-{color:"#201412", src:"https://i.goopics.net/tqs891.png"}
-]
-},
-{
-name:"Nez Kiki",
-src:"https://i.goopics.net/4ltchd.png",
-description:"Light-médium ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/4ltchd.png"},
-{color:"#201412", src:"https://i.goopics.net/zv25ow.png"}
-]
-},
-{
-name:"Nez Alycia",
-src:"https://i.goopics.net/go29h0.png",
-description:"Light-médium ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/go29h0.png"},
-{color:"#201412", src:"https://i.goopics.net/6eqofm.png"}
-]
-},
-],
-
-
-
-
-
-  "bouche": [
-    {name: "Bouche Leena", src: "https://i.goopics.net/2s9dpk.png"},
-    {name: "Bouche Shaaz", src: "https://i.goopics.net/1q11uc.png"},
-    {name: "Bouche Jenna", src: "https://i.goopics.net/1enrsf.png"},
-    {name: "Bouche Fayra", src: "https://i.goopics.net/e792us.png"},
-    {name: "Bouche Jazmin", src: "https://i.goopics.net/h9xgcl.png"},
-{
-name: "Bouche Venix", 
-src: "https://i.goopics.net/yj5ags.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#a24e55", src:"https://i.goopics.net/yj5ags.png"},
-{color:"#ad664a", src:"https://i.goopics.net/xz1pyx.png"},
-]
-},
-    {name: "Bouche Sola", src: "https://i.goopics.net/wfdwxu.png"},
-    {name: "Bouche Taysha", src: "https://i.goopics.net/grc238.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#ad5845", src:"https://i.goopics.net/grc238.png"},
-{color:"#a14954", src:"https://i.goopics.net/q8ib7a.png"},
-]
-},
-    {name: "Bouche Kiki", src: "https://i.goopics.net/1e1vw2.png"},
-    {name: "Bouche Alycia", src: "https://i.goopics.net/yigawu.png"},
-],
-
-
-
-
-
-"cheveux":[
-{
-name:"Leena",
-src:"https://i.goopics.net/lwhvry.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#000000", src:"https://i.goopics.net/lwhvry.png"},
-]
-},
-{
-name:"Shaaz",
-src:"https://i.goopics.net/ts19si.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#4E3A31", src:"https://i.goopics.net/lwhvry.png"},
-]
-},
-{
-name:"Jenna",
-src:"https://i.goopics.net/nh93wi.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#3D2725", src:"https://i.goopics.net/nh93wi.png"},
-]
-},
-{
-name:"Fayra",
-src:"https://i.goopics.net/vjsr86.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#000000", src:"https://i.goopics.net/vjsr86.png"},
-]
-},
-{
-name:"Jazmin",
-src:"https://i.goopics.net/boeg8q.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#000000", src:"https://i.goopics.net/boeg8q.png"},
-]
-},
-{
-name:"Elaz",
-src:"https://i.goopics.net/js9gme.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#6A4C3E", src:"https://i.goopics.net/js9gme.png"},
-]
-},
-{
-name:"Venix",
-src:"https://i.goopics.net/6olrnc.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#5c3f44", src:"https://i.goopics.net/6olrnc.png"},
-]
-},
-{
-name:"Taysha",
-src:"https://i.goopics.net/c1mkm3.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#000000", src:"https://i.goopics.net/c1mkm3.png"},
-]
-},
-{
-name:"Kiki",
-src:"https://i.goopics.net/8213od.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#886654", src:"https://i.goopics.net/8213od.png"},
-{color:"#DEC3a8", src:"https://i.goopics.net/65qm3b.png"},
-{color:"#000000", src:"https://i.goopics.net/9cf5hc.png"},
-]
-},
-{
-name:"Alycia",
-src:"https://i.goopics.net/a8ss3c.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#Caab94", src:"https://i.goopics.net/a8ss3c.png"},
-]
-},
-],
-
-
-
-
-
-"Collant/S.Vêtement":[
-{
-name:"Sous vêtements Leena",
-src:"https://i.goopics.net/52iotm.png",
-price: 50,
-description:"À porter avec le Jean Leena.",
-colors:[
-{color:"#CF7AB5", src:"https://i.goopics.net/f919jt.png"},
-]
-},
-{
-name:"Collants Shaaz",
-src:"https://i.goopics.net/1dx3c8.png",
-price: 50,
-description:"Collants à motif, noir ou blanc.",
-colors:[
-{color:"#000000", src:"https://i.goopics.net/1dx3c8.png"},
-{color:"#ffffff", src:"https://i.goopics.net/go9jtp.png"},
-]
-},
-{
-name:"Sous vêtements Shaaz",
-price: 50,
-src:"https://i.goopics.net/q7cw3b.png",
-description:"À porter avec les robes Shaaz.",
-colors:[
-{color:"#000000", src:"https://i.goopics.net/q7cw3b.png"},
-]
-},
-{
-name:"Sous vêtements Fayra",
-price: 50,
-src:"https://i.goopics.net/nkfgx8.png",
-description:"À porter avec le top Fayra.",
-colors:[
-{color:"#000000", src:"https://i.goopics.net/nkfgx8.png"},
-]
-},
-{
-name:"Sous vêtements Venix",
-price: 50,
-src:"https://i.goopics.net/gq8ye7.png",
-description:"À porter avec le body Venix.",
-colors:[
-{color:"#000000", src:"https://i.goopics.net/gq8ye7.png"},
-]
-},
-],
-
-
-
-"Chaussures":[
-{
-name:"Baskets Leena",
-price: 150,
-src:"https://i.goopics.net/gwfx89.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#ACA89E", src:"https://i.goopics.net/zn6dv7.png"},
-]
-},
-{
-name:"Talons Shaaz",
-src:"https://i.goopics.net/t6ev98.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#ffffff", src:"https://i.goopics.net/t6ev98.png"},
-{color:"#000000", src:"https://i.goopics.net/kz5ga1.png"},
-]
-},
-{
-name:"Bottes Sola",
-src:"https://i.goopics.net/212yfi.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#690c13", src:"https://i.goopics.net/212yfi.png"},
-]
-},
-{
-name:"Cuissarde Alycia",
-src:"https://i.goopics.net/bi1ipn.png",
-price: 100,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#EBAFD2", src:"https://i.goopics.net/bi1ipn.png"},
-{color:"#265b45", src:"https://i.goopics.net/xvrqrt.png"},
-]
-},
-],
-
-
-
-
-
-"tops":[
-{
-name:"Top Leena",
-src:"https://i.goopics.net/jsj1ua.png",
-price: 150,
-description:"À porter avec les sous vêtements Leena. Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#38120E", src:"https://i.goopics.net/jsj1ua.png"},
-{color:"#142048", src:"https://i.goopics.net/bhh930.png"},
-]
-},
-{
-name:"Corset Jenna",
-src:"https://i.goopics.net/wwfgng.png",
-price: 150,
-description:"Catégorie sous vêtements.",
-colors:[
-{color:"#000000", src:"https://i.goopics.net/llt1n7.png"},
-]
-},
-{
-name:"Top Fayra",
-src:"https://i.goopics.net/2mtbmo.png",
-price: 150,
-description:"À porter avec les sous vêtements Fayra.",
-colors:[
-{colorImg:"https://i.goopics.net/fwt9t7.png", src:"https://i.goopics.net/2mtbmo.png"},
-]
-},
-{
-name:"Maillot Jazmin",
-src:"https://i.goopics.net/9eqquf.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{colorImg:"https://i.goopics.net/oc14o4.png", src:"https://i.goopics.net/9eqquf.png"},
-]
-},
-{
-name:"Gilet Elaz",
-src:"https://i.goopics.net/qew8xz.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#171f4f", src:"https://i.goopics.net/qew8xz.png"},
-{color:"#4e0f16", src:"https://i.goopics.net/8f0jdu.png"},
-{color:"#004035", src:"https://i.goopics.net/d8pf5m.png"},
-{color:"#000000", src:"https://i.goopics.net/zemxqm.png"},
-]
-},
-{
-name:"Body Venix",
-src:"https://i.goopics.net/2wte5x.png",
-price: 150,
-description:"À porter avec les sous-vêtements Venix. Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#810b37", src:"https://i.goopics.net/clljt5.png"},
-]
-},
-{
-name:"Top Sola",
-src:"https://i.goopics.net/pkals9.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#690c13", src:"https://i.goopics.net/pkals9.png"},
-]
-},
-{
-name:"Top Sola 2",
-src:"https://i.goopics.net/xo765z.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#690c13", src:"https://i.goopics.net/xo765z.png"},
-]
-},
-{
-name:"Blouse",
-src:"https://i.goopics.net/kg6eqd.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#f9ebdd", src:"https://i.goopics.net/kg6eqd.png"},
-]
-},
-{
-name:"T-shirt Kiara",
-src:"https://i.goopics.net/lfu0h6.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#ffffff", src:"https://i.goopics.net/kg6eqd.png"},
-{color:"#000000", src:"https://i.goopics.net/1bcvlo.png"},
-]
-},
-{
-name:"T-shirt Kiara large",
-src:"https://i.goopics.net/9y9nfc.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#ffffff", src:"https://i.goopics.net/9y9nfc.png"},
-{color:"#000000", src:"https://i.goopics.net/jnaymq.png"},
-]
-},
-],
-
-
-
-
-
-
-"bas":[
-{
-name:"Jean Leena",
-src:"https://i.goopics.net/nx8eqx.png",
-price: 150,
-description:"À porter avec les sous vêtements Leena.",
-colors:[
-{color:"#748891", src:"https://i.goopics.net/uwk62k.png"}
-]
-},
-{
-name:"Jean Jenna",
-src:"https://i.goopics.net/gtrq27.png",
-price: 150,
-colors:[
-{colorImg:"https://i.goopics.net/nsdaul.png", src:"https://i.goopics.net/gtrq27.png"},
-]
-},
-{
-name:"Jean Fayra",
-src:"https://i.goopics.net/l3ld4t.png",
-price: 150,
-colors:[
-{color:"#b4b8b9", src:"https://i.goopics.net/l3ld4t.png"},
-]
-},
-{
-name:"Cargo Jazmin",
-src:"https://i.goopics.net/9sau7s.png",
-price: 150,
-colors:[
-{color:"#6c1d33", src:"https://i.goopics.net/9sau7s.png"},
-]
-},
-{
-name:"Jean Venix",
-src:"https://i.goopics.net/etliu4.png",
-price: 150,
-colors:[
-{color:"#43536e", src:"https://i.goopics.net/etliu4.png"},
-]
-},
-{
-name:"Jupe Sola",
-src:"https://i.goopics.net/jk43ee.png",
-price: 150,
-colors:[
-{color:"#616571", src:"https://i.goopics.net/jk43ee.png"},
-]
-},
-{
-name:"Jean Taysha",
-src:"https://i.goopics.net/xls2tu.png",
-price: 150,
-colors:[
-{color:"#385b91", src:"https://i.goopics.net/xls2tu.png"},
-]
-},
-],
-
-
-
-
-
-"tenues intégrales":[
-{
-name:"Robe Shaaz",
-src:"https://i.goopics.net/rscyq1.png",
-price: 150,
-colors:[
-{color:"#000000", src:"https://i.goopics.net/rscyq1.png"},
-{color:"#ffffff", src:"https://i.goopics.net/yjavop.png"},
-]
-},
-{
-name:"Robe Alycia",
-price: 200,
-src:"https://i.goopics.net/iq8dw2.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{colorImg:"https://i.goopics.net/pow8dv.png", src:"https://i.goopics.net/iq8dw2.png"},
-{colorImg:"https://i.goopics.net/ycrwyq.png", src:"https://i.goopics.net/nxyij8.png"},
-]
-},
-],
-
-
-
-
-
-"vestes": [
-{name: "Veste Jenna", src: "https://i.goopics.net/xspllg.png",
-price: 150,},
-],
-
-
-
-"Accessoires": [
-    {name: "Lunettes de soleil Jenna", src: "https://i.goopics.net/uc0ikp.png",
-price: 150,},
-    {name: "Nokia", src: "https://i.goopics.net/u7vowm.png",
-price: 150,},
-  ],
-
-
-
-"ongles": [
-    {name: "Black", src: "https://i.goopics.net/xaywfk.png"},
-    {name: "Pink", src: "https://i.goopics.net/1x2wa6.png"}
-  ],
-
-
-
-  "bijoux": [
-    {name: "Piercing nez Leena", src: "https://i.goopics.net/877v7c.png",
-price: 150,},
-    {name: "Piercing nez Jenna", src: "https://i.goopics.net/5f8aoe.png",
-price: 150,},
-    {name: "Collier croix dorée", src: "https://i.goopics.net/as5sqa.png",
-price: 150,},
-],
-
-
-/* ==========================
-   DATA HOMME
-========================== */
-
-
-};
-
-const categoriesHomme = {
-
-
-  "peau": [
-    {name: "Peau 1", src: "https://i.goopics.net/c9vwiy.png"},
-    {name: "Peau 2", src: "https://i.goopics.net/wg5183.png"},
-    {name: "Peau 3", src: "https://i.goopics.net/vdna2y.png"},
-    {name: "Peau 4", src: "https://i.goopics.net/yzguns.png"},
-    {name: "Peau 5", src: "https://i.goopics.net/x1iogg.png"},
-    {name: "Peau 6", src: "https://i.goopics.net/mps9x3.png"},
-    {name: "Peau 7", src: "https://i.goopics.net/am7p80.png"},
-    {name: "Peau 8", src: "https://i.goopics.net/a85rdk.png"},
-    {name: "Peau 9", src: "https://i.goopics.net/teryhf.png"},
-    {name: "Peau 10", src: "https://i.goopics.net/lasbqw.png"},
-    {name: "Peau 11", src: "https://i.goopics.net/lptzwy.png"},
-    {name: "Peau 12", src: "https://i.goopics.net/94q1bi.png"},
-    {name: "Peau 13", src: "https://i.goopics.net/vfpk9x.png"},
-    {name: "Peau 14", src: "https://i.goopics.net/4ttasq.png"},
-    {name: "Peau 15", src: "https://i.goopics.net/81tcn8.png"},
-    {name: "Peau 16", src: "https://i.goopics.net/wdtsud.png"},
-    {name: "Peau 17", src: "https://i.goopics.net/1xb2i9.png"},
-    {name: "Peau 18", src: "https://i.goopics.net/22ptrt.png"},
-    {name: "Peau 19", src: "https://i.goopics.net/vui6fa.png"}
-],
-
-
-
-
-"tatouages": [
-{
-name: "Tatouage ninja", src: "https://i.goopics.net/svud5h.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage croix", src: "https://i.goopics.net/5dj2b7.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage tête de mort", src: "https://i.goopics.net/gv6o0v.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage tête de mort bandana", src: "https://i.goopics.net/iqh9gj.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage ailes", src: "https://i.goopics.net/zhkacx.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage serpent", src: "https://i.goopics.net/fwqthe.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage rose", src: "https://i.goopics.net/qq72xf.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-{
-name: "Tatouage croix visage", src: "https://i.goopics.net/uyugyk.png",
-description:"Pour toutes demandes de tatouages, écrivez-moi un mp (à Nae Lenz).",
-price: 200,
-},
-],
-
-
-
-  "cicatrices": [
-    {name: "Cicatrice 1 ", src: "https://i.goopics.net/6mfu78.png"},
-    {name: "Cicatrice 2 ", src: "https://i.goopics.net/jokoeh.png"},
-],
-
-
-
-  "muscles": [
-    {name: "Abdos light skin", src: "https://i.goopics.net/dy9cmx.png"},
-    {name: "Abdos dark skin", src: "https://i.goopics.net/dxpb7c.png"},
-],
-
-
-  "sourcils": [
-    {name: "Sourcils Kal", src: "https://i.goopics.net/yphynw.png"},
-],
-
-
-
-"yeux":[
-{
-name:"Yeux Kal",
-src:"https://i.goopics.net/8c7jq2.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#304932", src:"https://i.goopics.net/8c7jq2.png"},
-]
-},
-{
-name:"Yeux Zane",
-src:"https://i.goopics.net/sturtc.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#304932", src:"https://i.goopics.net/sturtc.png"},
-]
-},
-],
-
-
-
-
-"nez":[
-{
-name:"Nez Kal",
-src:"https://i.goopics.net/kq2rmi.png",
-description:"Light ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/kq2rmi.png"},
-{color:"#000000", src:"https://i.goopics.net/jiuxml.png"},
-]
-},
-{
-name:"Nez Zane",
-src:"https://i.goopics.net/8k6mws.png",
-description:"Light ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/8k6mws.png"},
-{color:"#000000", src:"https://i.goopics.net/r8jj6u.png"},
-]
-},
-],
-
-  "bouche": [
-  {
-name: "Bouche Kal", 
-src: "https://i.goopics.net/7dc7nu.png",
-description:"Light, médium ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/7dc7nu.png"},
-{color:"#99613f", src:"https://i.goopics.net/qwdrle.png"},
-{color:"#000000", src:"https://i.goopics.net/ov4sn6.png"},
-]
-},
-  {
-name: "Bouche Zane", 
-src: "https://i.goopics.net/q0untz.png",
-description:"Light, médium ou dark selon votre carnation.",
-colors:[
-{color:"#A66f4b", src:"https://i.goopics.net/q0untz.png"},
-{color:"#99613f", src:"https://i.goopics.net/a7xwsp.png"},
-{color:"#000000", src:"https://i.goopics.net/50axmr.png"},
-]
-},
-],
-
-
-"cheveux":[
-{
-name:"Kal",
-src:"https://i.goopics.net/wqchmf.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#5c3f44", src:"https://i.goopics.net/wqchmf.png"},
-]
-},
-{
-name:"Zane",
-src:"https://i.goopics.net/ua3ar3.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#805032", src:"https://i.goopics.net/ua3ar3.png"},
-]
-},
-],
-
-
-"Pilosité faciale":[
-{
-name:"Barbe 1",
-src:"https://i.goopics.net/nsxzi4.png",
-},
-{
-name:"Barbe 2",
-src:"https://i.goopics.net/i186o6.png",
-},
-],
-
-
-
-
-
-"bas":[
-{
-name:"Survêtement Kal",
-src:"https://i.goopics.net/9dbsm6.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#000000", src:"https://i.goopics.net/9dbsm6.png"}
-]
-},
-],
-
-
-
-
-"haut":[
-{
-name:"Pull Kal",
-src:"https://i.goopics.net/j87r9c.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#6a6750", src:"https://i.goopics.net/j87r9c.png"},
-]
-},
-],
-
-
-"vestes": [
-{name: "Veste Jenna", src: "https://i.goopics.net/xspllg.png",
-price: 150,
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#6a6750", src:"https://i.goopics.net/j87r9c.png"},
-]
-},
-],
-
-
-"Chaussures":[
-{
-name:"Baskets NZ1",
-src:"https://i.goopics.net/rp5wot.png",
-description:"Pour tout autre souhait de couleur, écrivez-moi via mp (à Nae Lenz).",
-colors:[
-{color:"#b11e17", src:"https://i.goopics.net/rp5wot.png"},
-]
-},
-],
-
-
-
-};
-
-let currentCategories = categoriesFemme;
-
-const layers = {};
-const indexes = {};
-
-const avatarBox = document.getElementById("avatar-box");
-const baseAvatar = document.getElementById("base-avatar");
-const menus = document.getElementById("menus");
-const productPanel = document.getElementById("product-panel");
-const productName = document.getElementById("product-name");
-const productDesc = document.getElementById("product-desc");
-const colorPicker = document.getElementById("color-picker");
-const productPrice = document.getElementById("product-price");
-
-document.getElementById("add-to-cart").onclick = addToCart;
-
-const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1511939001530056814/KvMGih3Q7pbi-82dBPYOwXt3rbyd4N73ckFzanJjqKji8bzfb-CWuFDFdE--gQw1ssst";
-
-async function sendCartToDiscord() {
-  if (cart.length === 0) return;
-
-  let total = getCartTotal();
-
-  let description = "";
-
-  for (let i = 0; i < cart.length; i++) {
-    const item = cart[i];
-    description +=
-      `**${i + 1}. ${item.name}**\n` +
-      `Catégorie : ${item.cat}\n` +
-      `Genre : ${item.gender}\n` +
-      `Prix : ${item.price}€\n\n`;
-  }
-
-  const payload = {
-    content: "📦 Nouvelle commande NAEDOLLZ",
-    embeds: [
-      {
-        title: "🛒 Panier validé",
-        description: description,
-        color: 0x4a0f14,
-        fields: [
-          {
-            name: "💰 Total",
-            value: total + " €",
-            inline: true
-          },
-          {
-            name: "📦 Articles",
-            value: String(cart.length),
-            inline: true
-          }
-        ]
-      }
-    ]
-  };
-
-  await fetch(DISCORD_WEBHOOK_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-}
-
-document.getElementById("validate-cart").onclick = async function () {
-  if (cart.length === 0) return;
-
-  await sendCartToDiscord();
-
-  alert("Commande envoyée ✨ Merci pour ton achat");
-
-  cart = [];
-  updateCartCount();
-  renderCart();
-};
-
-let currentItem = null;
-let selectedCartImage = null;
-
-/* ==========================
-   SWITCH GENRE
-========================== */
-
-function switchGender(gender){
-
-baseAvatar.style.transition =
-"all .45s cubic-bezier(.2,.8,.2,1)";
-
-baseAvatar.style.opacity = "0";
-baseAvatar.style.transform = "translateY(30px) scale(.97)";
-baseAvatar.style.filter = "blur(6px)";
-
-setTimeout(() => {
-
-currentGender = gender;
-
-baseAvatar.src =
-gender === "homme"
-? avatarHomme
-: avatarFemme;
-
-currentCategories =
-gender === "homme"
-? categoriesHomme
-: categoriesFemme;
-
-buildMenus();
-
-Object.values(layers).forEach(img=>{
-  img.style.opacity="0";
+/* ACCORDION */
+document.querySelectorAll(".acc-title").forEach(b=>{
+b.onclick=()=>b.parentElement.classList.toggle("active");
 });
 
-productPanel.style.display="none";
-currentItem=null;
-
-baseAvatar.style.opacity = "1";
-baseAvatar.style.transform = "translateY(0) scale(1)";
-baseAvatar.style.filter = "blur(0px)";
-
-},350);
-
-
-}
-/* ==========================
-   BUILD MENUS
-========================== */
-
-function buildMenus(){
-
-  menus.innerHTML = "";
-
-  /* supprime tous les anciens calques */
-  Object.values(layers).forEach(img => img.remove());
-
-  for(const key in layers){
-    delete layers[key];
-  }
-
-  Object.keys(currentCategories).forEach(cat => {
-
-    indexes[cat] = -1;
-
-    const img = document.createElement("img");
-    img.style.opacity = "0";
-
-    avatarBox.appendChild(img);
-    layers[cat] = img;
-
-    const div = document.createElement("div");
-    div.className = "category";
-
-    div.innerHTML = `
-    <strong>${cat.toUpperCase()}</strong>
-    <div style="display:flex; gap:6px; align-items:center;">
-      <button onclick="navigate('${cat}',-1)">◀</button>
-      <button onclick="navigate('${cat}',1)">▶</button>
-      <button class="reset-btn" onclick="resetCategory('${cat}')">⟲</button>
-    </div>
-    `;
-
-    menus.appendChild(div);
-
-  });
-
-Object.keys(currentCategories).forEach(cat => {
-  layers[cat].style.opacity = "0";
-});
-
-}
-
-/* ==========================
-   NAVIGATION ITEMS
-========================== */
-
-function navigate(cat,dir){
-
-const data = currentCategories[cat];
-
-indexes[cat] += dir;
-
-if(indexes[cat] < 0) indexes[cat] = data.length - 1;
-if(indexes[cat] >= data.length) indexes[cat] = 0;
-
-updateLayer(cat);
-
-}
-
-/* ==========================
-   UPDATE LAYER
-========================== */
-
-function updateLayer(cat){
-
-currentCategory = cat;
-
-if(indexes[cat] === -1){
-  const img = layers[cat];
-  img.style.opacity = "0";
-  img.src = "";
-  return;
-}
-
-const item = currentCategories[cat][indexes[cat]];
-const img = layers[cat];
-
-
-/* ==========================
-   GESTION TENUES INTÉGRALES
-========================== */
-
-if(cat === "tenues intégrales"){
-
-  ["tops","bas"].forEach(layerCat => {
-
-    indexes[layerCat] = -1;
-
-    if(layers[layerCat]){
-      layers[layerCat].src = "";
-      layers[layerCat].style.opacity = "0";
-    }
-
-  });
-
-}
-
-if(cat === "tops" || cat === "bas"){
-
-  indexes["tenues intégrales"] = -1;
-
-  if(layers["tenues intégrales"]){
-    layers["tenues intégrales"].src = "";
-    layers["tenues intégrales"].style.opacity = "0";
-  }
-
-}
-
-currentItem = item;
-selectedCartImage = item.src;
-
-const btn = document.getElementById("add-to-cart");
-
-if(cartAllowedCategories.includes(currentCategory)){
-  btn.style.display = "block";
-} else {
-  btn.style.display = "none";
-}
-
-img.style.transition = "opacity 1s cubic-bezier(.2,.8,.2,1)";
-
-img.style.opacity = "0";
-
-setTimeout(() => {
-
-  img.src = item.src;
-
-  img.onload = () => {
-    img.style.opacity = "1";
-  };
-
-},250);
-
-productPrice.innerText = item.price ? `${item.price} €` : "";
-
-/* fiche produit uniquement sur certaines catégories */
-
-if(productCategories.includes(cat)){
-
-  productPanel.style.display = "block";
-
-  productName.innerText = item.name;
-  productDesc.innerText = item.description || "";
-
-  colorPicker.innerHTML = "";
-  colorPicker.style.display = "flex";
-  colorPicker.style.gap = "10px";
-  colorPicker.style.alignItems = "center";
-
-}else{
-
-  productPanel.style.display = "block";
-
-  productName.innerText = item.name;
-
-  productDesc.innerText = "";
-  productPrice.innerText = "";
-  colorPicker.innerHTML = "";
-
-  document.getElementById("add-to-cart").style.display = "none";
-
-  return;
-
-}
-
-if(item.colors){
-
-item.colors.forEach(c => {
-
-const sw = document.createElement("div");
-
-sw.style.width = "28px";
-sw.style.height = "28px";
-sw.style.borderRadius = "50%";
-sw.style.border = "2px solid #570000";
-sw.style.cursor = "pointer";
-if(c.colorImg){
- 
-  sw.style.backgroundImage = `url(${c.colorImg})`;
-  sw.style.backgroundSize = "cover";
-  sw.style.backgroundPosition = "center";
-
-}else if(c.color){
-
-  sw.style.background = c.color;
-
-}
-
-sw.onclick = () => {
-
-  layers[cat].src = c.src;
-
-  selectedCartImage = c.src;
-
-};
-
-colorPicker.appendChild(sw);
-
-productPrice.innerText = item.price ? `${item.price} €` : "";
-
-});
-
-}
-}
-
-function resetCategory(cat){
-
-indexes[cat] = -1;
-
-const img = layers[cat];
-
-img.style.opacity = "0";
-img.src = "";
-currentItem = null;
-
-}
-
-function resetLook(){
-
-Object.keys(layers).forEach(cat => {
-
-  indexes[cat] = -1;
-
-  layers[cat].style.opacity = "0";
-  layers[cat].src = "";
-
-});
-
-currentItem = null;
-currentCategory = null;
-
-productPanel.style.display = "none";
-
-}
-
-/* ==========================
-   INIT
-========================== */
-
-window.addEventListener("load", () => {
-  switchGender("femme");
-});
-
-function addToCart(){
-
-if(!currentItem) return;
-
-cart.push({
-  name: currentItem.name,
-src: selectedCartImage || currentItem.src,
-  cat: getCurrentCategoryName(),
-  gender: currentGender,
-  price: currentItem.price || 0
-});
-
-/* 👇 IMPORTANT : mise à jour du compteur */
-updateCartCount();
-
-/* 👇 mise à jour affichage panier */
-renderCart();
-}
-
-function getCurrentCategoryName(){
-
-for(let cat in currentCategories){
-if(currentCategories[cat].includes(currentItem)){
-return cat;
-}
-}
-
-return "inconnu";
-}
-
-function renderCart(){
-
-const container = document.getElementById("cart-items");
-
-container.innerHTML = "";
-
-cart.forEach((item, index) => {
-
-const div = document.createElement("div");
-div.className = "cart-item";
-
-div.innerHTML = `
-<div style="
-font-family:'Cormorant Garamond', serif;
-font-size:24px;
-font-weight:600;
-margin-bottom:4px;
-">
-${item.name}
-</div>
-
-<div style="
-font-family:'Inter', sans-serif;
-font-size:12px;
-letter-spacing:1px;
-opacity:.75;
-margin-bottom:6px;
-">
-${item.cat} • ${item.gender}
-</div>
-
-<div style="
-font-family:'Inter', sans-serif;
-font-size:13px;
-font-weight:500;
-margin-bottom:8px;
-">
-${item.price} €
-</div>
-
-<img src="${item.src}" style="
-width:60px;
-margin-top:5px;
-margin-bottom:8px;
-"><br>
-
-<button class="cart-btn" onclick="removeFromCart(${index})">
-Supprimer
-</button>
-`;
-
-container.appendChild(div);
-
-});
-
-document.getElementById("cart-total").innerText =
-`Total : ${getCartTotal()} €`;
-
-}
-
-function removeFromCart(index){
-
-cart.splice(index, 1);
-
-/* mise à jour compteur */
-updateCartCount();
-
-/* mise à jour affichage */
-renderCart();
-
-}
-
-function updateCartCount(){
-
-const count = document.getElementById("cart-count");
-
-if(cart.length > 0){
-count.style.display = "flex";
-count.innerText = cart.length;
-} else {
-count.style.display = "none";
-}
-
-}
-
-function getCartTotal(){
-  return cart.reduce((sum, item) => sum + (item.price || 0), 0);
-}
-
-document.getElementById("cart-total").innerText =
-`Total : ${getCartTotal()} €`;
-
-document.querySelectorAll(".acc-title").forEach(btn => {
-btn.addEventListener("click", () => {
-
-const item = btn.parentElement;
-
-item.classList.toggle("active");
-
-});
-});
-
-
-
-
-const showcaseImages = [
-  "https://i.goopics.net/puccqj.png",
-  "https://i.goopics.net/j87r9c.png",
-  "https://i.goopics.net/4cvps9.png"
+/* CABINE MINI LOGIC */
+
+let currentIndex = 0;
+let items = [
+"https://i.goopics.net/yqfh46.png",
+"https://i.goopics.net/xo6433.png"
 ];
 
-let showcaseIndex = 0;
-
-const img1 = document.getElementById("showcase-img1");
-const img2 = document.getElementById("showcase-img2");
-
-let visibleImg = img1;
-let hiddenImg = img2;
-
-/* image de départ */
-img1.src = showcaseImages[0];
-img1.style.opacity = "1";
-
-function showImage(index){
-
-  hiddenImg.src = showcaseImages[index];
-
-  hiddenImg.style.opacity = "1";
-  visibleImg.style.opacity = "0";
-
-  [visibleImg, hiddenImg] = [hiddenImg, visibleImg];
+function render(){
+document.getElementById("base-avatar").src = items[currentIndex];
 }
 
-/* redémarre le timer après un clic */
-function restartShowcaseTimer(){
-
-  clearInterval(showcaseTimer);
-
-  showcaseTimer = setInterval(() => {
-
-    showcaseIndex++;
-
-    if(showcaseIndex >= showcaseImages.length){
-      showcaseIndex = 0;
-    }
-
-    showImage(showcaseIndex);
-
-  }, 3000);
-
+function moveLayer(dir){
+currentIndex += dir;
+if(currentIndex < 0) currentIndex = items.length-1;
+if(currentIndex >= items.length) currentIndex = 0;
+render();
 }
 
-/* image suivante */
-function nextShowcase(){
+render();
 
-  showcaseIndex++;
-
-  if(showcaseIndex >= showcaseImages.length){
-    showcaseIndex = 0;
-  }
-
-  showImage(showcaseIndex);
-
-  restartShowcaseTimer();
-
+/* CART SIMPLE */
+let cart=[];
+function addToCart(){
+cart.push({name:"item"});
+alert("Ajouté");
 }
 
-/* image précédente */
-function prevShowcase(){
-
-  showcaseIndex--;
-
-  if(showcaseIndex < 0){
-    showcaseIndex = showcaseImages.length - 1;
-  }
-
-  showImage(showcaseIndex);
-
-  restartShowcaseTimer();
-
-}
-
-/* lancement automatique */
-let showcaseTimer = setInterval(() => {
-
-  showcaseIndex++;
-
-  if(showcaseIndex >= showcaseImages.length){
-    showcaseIndex = 0;
-  }
-
-  showImage(showcaseIndex);
-
-}, 4000);
-
-
-
-
-
-
-let cabinePage = 0;
-
-function moveCabine(dir){
-
-  const layout = document.getElementById("cabine-layout");
-
-  cabinePage += dir;
-
-  if(cabinePage < 0) cabinePage = 0;
-  if(cabinePage > 1) cabinePage = 1;
-
-  layout.style.transform = `translateX(-${cabinePage * 100}vw)`;
-}
-
+document.getElementById("validate-cart").onclick=function(){
+alert("Commande envoyée");
+cart=[];
+};
 
 </script>
 
