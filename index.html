@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+
 <style>
 
 /* ==========================
@@ -716,6 +717,60 @@ background:#f7efe8;
   transform:translateY(-2px);
 }
 
+
+
+@media (max-width: 768px) {
+
+  #cabine-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #avatar-column {
+    width: 100%;
+  }
+
+  #avatar-box,
+  .showcase-container {
+    width: 90vw;
+    height: 120vw; /* garde un ratio vertical */
+    max-width: 420px;
+    max-height: 760px;
+  }
+
+  #menu-box {
+    width: 90%;
+  }
+
+  #product-panel {
+    width: 90%;
+  }
+
+  .category {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  header {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px;
+  }
+
+}
+
+#avatar-box img,
+.showcase-slide {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+}
 </style>
 </head>
 
