@@ -301,11 +301,12 @@ align-items:center;
 gap:18px;
 }
 
-#avatar-box{
-width:420px;
-height:760px;
-position:relative;
-overflow:hidden;
+#avatar-box {
+  width: 90vw;
+  max-width: 420px;
+  height: 70vh;
+  max-height: 760px;
+}
 
 border-radius:24px;
 background:#f5efea;
@@ -719,16 +720,16 @@ background:#f7efe8;
 
 
 
-/* ==========================
-   MOBILE CABINE MODE MAGAZINE
-========================== */
-
 @media (max-width: 768px) {
+
+  #cabine {
+    overflow: hidden;
+    position: relative;
+  }
 
   #cabine-layout {
     display: flex;
-    flex-direction: row;
-    width: 300vw; /* 3 “pages” */
+    width: 200vw; /* 2 pages */
     transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
   }
 
@@ -738,42 +739,18 @@ background:#f7efe8;
     flex: 0 0 100vw;
   }
 
-  /* on empile avatar + panel dans la même page */
-  #avatar-column {
-    flex-direction: column;
-    align-items: center;
+  /* IMPORTANT : on évite la hauteur fixe cassée */
+  #avatar-box {
+    width: 90vw;
+    height: 70vh;
   }
 
-  /* conteneur scroll hidden */
-  #cabine {
-    overflow: hidden;
+  .showcase-container {
+    width: 90vw;
+    height: 70vh;
   }
 
 }
-
-
-.mobile-nav{
-  display:none;
-}
-
-@media (max-width:768px){
-  .mobile-nav{
-    display:flex;
-    justify-content:space-between;
-    width:100%;
-    margin-top:10px;
-  }
-
-  .mobile-nav button{
-    background:#4a0f14;
-    color:white;
-    border:none;
-    width:44px;
-    height:44px;
-    border-radius:50%;
-  }
-}
-
 </style>
 </head>
 
@@ -2632,19 +2609,22 @@ let showcaseTimer = setInterval(() => {
 
 
 
-let mobileCabinePage = 0;
+
+
+let cabinePage = 0;
 
 function moveCabine(dir){
 
   const layout = document.getElementById("cabine-layout");
 
-  mobileCabinePage += dir;
+  cabinePage += dir;
 
-  if(mobileCabinePage < 0) mobileCabinePage = 0;
-  if(mobileCabinePage > 1) mobileCabinePage = 1;
+  if(cabinePage < 0) cabinePage = 0;
+  if(cabinePage > 1) cabinePage = 1;
 
-  layout.style.transform = `translateX(-${mobileCabinePage * 100}vw)`;
+  layout.style.transform = `translateX(-${cabinePage * 100}vw)`;
 }
+
 
 </script>
 
