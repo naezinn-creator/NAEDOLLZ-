@@ -301,12 +301,11 @@ align-items:center;
 gap:18px;
 }
 
-#avatar-box {
-  width: 90vw;
-  max-width: 420px;
-  height: 70vh;
-  max-height: 760px;
-}
+#avatar-box{
+width:420px;
+height:760px;
+position:relative;
+overflow:hidden;
 
 border-radius:24px;
 background:#f5efea;
@@ -720,71 +719,58 @@ background:#f7efe8;
 
 
 
-@media screen and (max-width: 768px) {
-
-  /* ================= CABINE MOBILE ================= */
+@media (max-width: 768px) {
 
   #cabine-layout {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 10px;
   }
 
   #avatar-column {
     width: 100%;
-    max-width: 100%;
-    align-items: center;
   }
 
-  /* AVATAR = ADAPTATIF */
-  #avatar-box {
-    width: 92vw;
-    height: 140vw; /* garde proportion avatar */
-    max-height: 600px;
+  #avatar-box,
+  .showcase-container {
+    width: 90vw;
+    height: 120vw; /* garde un ratio vertical */
+    max-width: 420px;
+    max-height: 760px;
   }
 
-  #avatar-box img {
-    object-fit: contain;
-  }
-
-  /* PANEL PRODUIT */
-  #product-panel {
-    width: 92vw;
-  }
-
-  /* MENU DROITE */
   #menu-box {
-    width: 92vw;
-    max-width: 92vw;
+    width: 90%;
   }
 
-  /* BOUTONS CATÉGORIES */
+  #product-panel {
+    width: 90%;
+  }
+
   .category {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 6px;
   }
 
-  .category div {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  /* HEADER plus propre */
   header {
-    width: 96%;
+    flex-wrap: wrap;
     gap: 10px;
     padding: 12px;
   }
 
-  header button {
-    font-size: 10px;
-  }
-
 }
 
+#avatar-box img,
+.showcase-slide {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 
+body {
+  -webkit-text-size-adjust: 100%;
+}
 </style>
 </head>
 
@@ -911,54 +897,49 @@ En espérant vous voir bientôt, Nae.
 <!-- CABINE -->
 <section id="cabine" class="page">
 
-  <!-- flèches mobile (overlay) -->
-  <div class="mobile-nav">
-    <button onclick="moveCabine(-1)">❮</button>
-    <button onclick="moveCabine(1)">❯</button>
+<div id="cabine-layout">
+
+<div id="avatar-column">
+
+  <div id="avatar-box">
+    <img id="base-avatar">
   </div>
 
-  <div id="cabine-layout">
+  <div id="product-panel">
+    <h3 id="product-name"></h3>
+    <p id="product-desc"></p>
+<p id="product-price"></p>
 
-    <!-- PAGE 1 : MENU -->
-    <div id="menu-box">
+    <div id="color-picker"></div>
 
-      <h2>CABINE INTERACTIVE</h2>
-
-      <div id="gender-switch">
-        <button onclick="switchGender('femme')">Femme</button>
-        <button onclick="switchGender('homme')">Homme</button>
-      </div>
-
-      <div id="menus"></div>
-
-      <button id="reset-look-btn" onclick="resetLook()">
-        Réinitialiser le look
-      </button>
-
-    </div>
-
-    <!-- PAGE 2 : AVATAR + PRODUITS -->
-    <div id="avatar-column">
-
-      <div id="avatar-box">
-        <img id="base-avatar">
-      </div>
-
-      <div id="product-panel">
-        <h3 id="product-name"></h3>
-        <p id="product-desc"></p>
-        <p id="product-price"></p>
-
-        <div id="color-picker"></div>
-
-        <button id="add-to-cart">Ajouter au panier</button>
-      </div>
-
-    </div>
-
+    <button id="add-to-cart">Ajouter au panier</button>
   </div>
+
+</div>
+
+<div id="menu-box">
+
+<h2>CABINE INTERACTIVE</h2>
+
+<div id="gender-switch">
+<button onclick="switchGender('femme')">Femme</button>
+<button onclick="switchGender('homme')">Homme</button>
+</div>
+
+<div id="menus"></div>
+
+<button id="reset-look-btn" onclick="resetLook()">
+Réinitialiser le look
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
+
 
 
 <!-- PANIER -->
@@ -2639,26 +2620,6 @@ let showcaseTimer = setInterval(() => {
   showImage(showcaseIndex);
 
 }, 4000);
-
-
-
-
-
-
-let cabinePage = 0;
-
-function moveCabine(dir){
-
-  const layout = document.getElementById("cabine-layout");
-
-  cabinePage += dir;
-
-  if(cabinePage < 0) cabinePage = 0;
-  if(cabinePage > 1) cabinePage = 1;
-
-  layout.style.transform = `translateX(-${cabinePage * 100}vw)`;
-}
-
 
 </script>
 
